@@ -13,10 +13,10 @@ Requirements
 Assumes C++14 cabaple compiler with some compatibility for older MSVC versions.
 
 C++ feature matrices:
-MSVC: https://msdn.microsoft.com/en-us/library/hh567368.aspx
-Intel: https://software.intel.com/en-us/articles/c14-features-supported-by-intel-c-compiler
-Clang: https://clang.llvm.org/cxx_status.html
-GCC: https://gcc.gnu.org/projects/cxx-status.html
+* MSVC: https://msdn.microsoft.com/en-us/library/hh567368.aspx
+* Intel: https://software.intel.com/en-us/articles/c14-features-supported-by-intel-c-compiler
+* Clang: https://clang.llvm.org/cxx_status.html
+* GCC: https://gcc.gnu.org/projects/cxx-status.html
 
 Supported compilers:
 * MSVC >= 2015
@@ -31,4 +31,5 @@ Supported compilers:
 Shipped External Libraries
 --------------------------
 
-C++ commandline parsing (MIT): https://github.com/jarro2783/cxxopts
+* C++ commandline parsing (MIT): https://github.com/jarro2783/cxxopts
+* Tetrahedron-tetrahedron intersection (heavily modified): [tet_a_tet.h](https://github.com/erich666/jgt-code/blob/master/Volume_07/Number_2/Ganovelli2002/tet_a_tet.h). The license is included [here](./doc/license_ganovelli_tet_a_tet.md) 
