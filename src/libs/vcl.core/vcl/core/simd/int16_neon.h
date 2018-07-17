@@ -217,10 +217,10 @@ namespace Vcl
 		VCL_STRONG_INLINE void set(int s00, int s01, int s02, int s03, int s04, int s05, int s06, int s07,
 			                       int s08, int s09, int s10, int s11, int s12, int s13, int s14, int s15)
 		{
-			int alignas(16) d0[4] = { s00, s01, s02, s03 };
-			int alignas(16) d1[4] = { s04, s05, s06, s07 };
-			int alignas(16) d2[4] = { s08, s09, s10, s11 };
-			int alignas(16) d3[4] = { s12, s13, s14, s15 };
+			alignas(16) int d0[4] = { s00, s01, s02, s03 };
+			alignas(16) int d1[4] = { s04, s05, s06, s07 };
+			alignas(16) int d2[4] = { s08, s09, s10, s11 };
+			alignas(16) int d3[4] = { s12, s13, s14, s15 };
 			mF4[0] = vld1q_s32(d0);
 			mF4[1] = vld1q_s32(d1);
 			mF4[2] = vld1q_s32(d2);

@@ -162,7 +162,7 @@ namespace Vcl
 		}
 		VCL_STRONG_INLINE void set(float s0, float s1, float s2, float s3)
 		{
-			float alignas(16) data[4] = { s0, s1, s2, s3 };
+			alignas(16) float data[4] = { s0, s1, s2, s3 };
 			_data[0] = vld1q_f32(data);
 		}
 		VCL_STRONG_INLINE void set(float32x4_t vec)

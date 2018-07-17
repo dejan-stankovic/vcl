@@ -124,7 +124,7 @@ namespace Vcl
 		}
 		VCL_STRONG_INLINE void set(int s0, int s1, int s2, int s3)
 		{
-			int alignas(16) data[4] = { s0, s1, s2, s3 };
+			alignas(16) int data[4] = { s0, s1, s2, s3 };
 			_data[0] = vld1q_s32(data);
 		}
 		VCL_STRONG_INLINE void set(int32x4_t vec)
