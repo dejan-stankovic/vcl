@@ -123,18 +123,23 @@ namespace Vcl
 		return vreinterpretq_f32_u32(vandq_u32(vorrq_u32(vandq_u32(v, vdupq_n_u32(0x80000000)), vdupq_n_u32(1)), vcneqq_f32(v, vdupq_n_f32(0))));
 	}
 
-	VCL_STRONG_INLINE int vmovemaskq_f32(float32x4_t a)
+	VCL_STRONG_INLINE int vmovemaskq_u32(uint32x4_t a)
 	{
 		static alignas(16) const uint32_t data[4] = { 1, 2, 4, 8 };
 		static const uint32x4_t movemask = vld1q_u32(data);
 		static const uint32x4_t highbit = vdupq_n_u32(0x80000000);
 
-		uint32x4_t t0 = vreinterpretq_u32_f32(a);
+		uint32x4_t t0 = a;
 		uint32x4_t t1 = vtstq_u32(t0, highbit);
 		uint32x4_t t2 = vandq_u32(t1, movemask);
 		uint32x2_t t3 = vorr_u32(vget_low_u32(t2), vget_high_u32(t2));
 
 		return vget_lane_u32(t3, 0) | vget_lane_u32(t3, 1);
+	}
+
+	VCL_STRONG_INLINE int vmovemaskq_f32(float32x4_t a)
+	{
+		return vmovemaskq_u32(vreinterpretq_u32_f32(a));
 	}
 
 	VCL_STRONG_INLINE float32_t vpminq_f32(float32x4_t v)
