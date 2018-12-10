@@ -94,9 +94,27 @@ namespace Vcl
 		value = float8{ _mm256_loadu_ps(base) };
 	}
 
+	VCL_STRONG_INLINE void load(int8& value, const int* base)
+	{
+		value = int8{ _mm256_loadu_si256(reinterpret_cast<const __m256i*>(base)) };
+	}
+
 	VCL_STRONG_INLINE void load(float16& value, const float* base)
 	{
-		value = float16{ _mm256_loadu_ps(base), _mm256_loadu_ps(base + 8) };
+		value = float16
+		{
+			_mm256_loadu_ps(base + 0),
+			_mm256_loadu_ps(base + 8)
+		};
+	}
+
+	VCL_STRONG_INLINE void load(int16& value, const int* base)
+	{
+		value = int16
+		{
+			_mm256_loadu_si256(reinterpret_cast<const __m256i*>(base + 0)),
+			_mm256_loadu_si256(reinterpret_cast<const __m256i*>(base + 8))
+		};
 	}
 
 	// The load/store implementation for vectors are directly from or based on:

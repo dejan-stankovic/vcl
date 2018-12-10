@@ -396,6 +396,11 @@ namespace Vcl
 		return _mm_cvtss_f32(_mm256_castps256_ps128(redux));
 	}
 
+	VCL_STRONG_INLINE float _mmVCL_dp_ps(__m256 a, __m256 b)
+	{
+		return _mm256_dp_ps(a, b, 0xff).m256_f32[0];
+	}
+
 	VCL_STRONG_INLINE float _mmVCL_extract_ps(__m256 v, int i)
 	{
 #if 1
